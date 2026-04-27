@@ -19,9 +19,9 @@
       rel="stylesheet" />
 
     <meta name="theme-color" content="#1a1b1e" />
-
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
 
+    <!-- Open Graph -->
     <meta property="og:title" content="Akash Mudgal | Frontend Developer" />
     <meta
       property="og:description"
@@ -30,7 +30,7 @@
     <meta property="og:url" content="https://dead-portfolio.pages.dev" />
     <meta property="og:image" content="https://dead-portfolio.pages.dev/og-image.png" />
 
-    <!-- Twitter Card -->
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Akash Mudgal | Frontend Developer" />
     <meta
@@ -39,29 +39,46 @@
     <meta name="twitter:image" content="https://dead-portfolio.pages.dev/og-image.png" />
 
     <style>
+      :root {
+        --bg: #1a1b1e;
+        --text: #f2f2f2;
+        --muted: #bfbfbf;
+        --link: #e0e0e0;
+        --border: #2a2a2a;
+      }
+
+  .light {
+  --bg: #f7f6f3;
+  --text: #1a1a1a;
+  --muted: #5c5c5c;
+  --link: #4c4c4c;
+  --border: #e6e2dc;
+}
       body {
         min-height: 100dvh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         font-family: "JetBrains Mono", monospace;
-        background: #1a1b1e;
+        background: var(--bg);
         padding: 15px;
         box-sizing: border-box;
         max-width: 600px;
         margin: auto;
         overflow-y: auto;
+      
       }
 
       h1 {
         font-size: 1.9rem;
-        color: #f2f2f2;
+        color: var(--text);
       }
 
       p {
         line-height: 1.6;
         font-size: 0.95rem;
-        color: #bfbfbf;
+        color: var(--muted);
+        margin-bottom: 1.2em;
       }
 
       .links {
@@ -69,22 +86,49 @@
         display: flex;
         gap: 1.3em;
         font-size: 0.9rem;
+        align-items: center;
       }
 
-      a {
-        color: #e0e0e0;
-        text-decoration: none;
-        border-bottom: 1px solid #2a2a2a;
-        padding-bottom: 2px;
+a {
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-color: var(--border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 
-        transition:
-          border-color 0.2s ease,
-          color 0.2s ease;
-      }
+a:hover {
+  color: var(--text);
+  text-decoration-color: var(--text);
+}
 
-      a:hover {
-        border-bottom-color: #e6e6e6;
-        color: #ffffff;
+   button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display:flex;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+
+  color: var(--muted);
+  cursor: pointer;
+
+
+}
+:focus-visible {
+  outline: 1px solid var(--muted);
+  border-radius:2px;
+  overflow:hidden;
+}
+
+
+
+      .theme-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
       }
 
       ::selection {
@@ -102,6 +146,7 @@
       }
     </style>
 
+    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -111,7 +156,7 @@
         "jobTitle": "Frontend Developer",
         "sameAs": [
           "https://github.com/mudgalz",
-          "https://linkedin.com/in/mudgalz"
+          "https://linkedin.com/in/mudgalz",
           "https://instagram.com/mudgalz"
         ]
       }
@@ -119,6 +164,28 @@
   </head>
 
   <body>
+    <!-- Theme Toggle -->
+   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round">
+    
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+    <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+    <path d="M12 3l0 18"></path>
+    <path d="M12 9l4.65 -4.65"></path>
+    <path d="M12 14.3l7.37 -7.37"></path>
+    <path d="M12 19.6l8.85 -8.85"></path>
+  </svg>
+</button>
+
     <div>
       <h1>Àkash Mudgal</h1>
 
@@ -135,9 +202,11 @@
       </p>
 
       <p>
-        I have also worked on personal projects like
-        <a target="_blank" href="https://roughframes.vercel.app">RoughFrames</a
-        >, a media annotation tool with real-time feedback.
+        I have worked on several personal projects, including
+        <a href="https://roughframes.vercel.app" target="_blank">RoughFrames</a>,
+        <a href="https://threejs-motion.vercel.app" target="_blank">Threejs Motion</a>,
+        and
+        <a href="https://tinygallery.netlify.app" target="_blank">Tiny Gallery</a>.
       </p>
 
       <p>
@@ -148,27 +217,38 @@
     </div>
 
     <div class="links">
-      <a rel="noopener noreferrer" href="./resume.pdf" target="_blank"
-        >Resume</a
-      >
-      <a
-        rel="noopener noreferrer"
-        href="https://github.com/mudgalz"
-        target="_blank"
-        >Github</a
-      >
-      <a
-        rel="noopener noreferrer"
-        href="https://linkedin.com/in/mudgalz"
-        target="_blank"
-        >Linkedin</a
-      >
-      <a
-        rel="noopener noreferrer"
-        href="mailto:hellomudgal@gmail.com"
-        target="_blank"
-        >Email</a
-      >
+      <a href="./resume.pdf" target="_blank">Resume</a>
+      <a href="https://github.com/mudgalz" target="_blank">Github</a>
+      <a href="https://linkedin.com/in/mudgalz" target="_blank">Linkedin</a>
+      <a href="mailto:hellomudgal@gmail.com" target="_blank">Email</a>
     </div>
+
+    <script>
+      const toggle = document.getElementById("theme-toggle");
+
+      function setTheme(theme) {
+        if (theme === "light") {
+          document.body.classList.add("light");
+        } else {
+          document.body.classList.remove("light");
+        }
+        localStorage.setItem("theme", theme);
+      }
+
+      toggle.addEventListener("click", () => {
+        const isLight = document.body.classList.contains("light");
+        setTheme(isLight ? "dark" : "light");
+      });
+
+      // Load saved theme or system preference
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        const prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+        setTheme(prefersLight ? "light" : "dark");
+      }
+    </script>
   </body>
 </html>
