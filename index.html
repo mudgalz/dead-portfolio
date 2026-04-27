@@ -91,10 +91,9 @@
 
 a {
   color: var(--link);
-  text-decoration-line: underline;
-  text-decoration-color: var(--border);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+
 }
 
 a:hover {
@@ -135,6 +134,10 @@ a:hover {
         background: #cdcdcd;
         color: #1a1b1e;
       }
+      
+      a, button {
+  -webkit-tap-highlight-color: transparent;
+}
 
       @media (max-width: 600px) {
         p {
